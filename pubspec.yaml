@@ -38,6 +38,14 @@ dependencies:
   cupertino_icons: ^1.0.2
   firebase_auth: ^4.0.2
   firebase_core: ^2.1.0
+  cloud_firestore:
+ 
+  mobx: ^2.0.6+1
+  flutter_mobx: ^2.0.4
+  image_picker: ^0.8.4+11
+  path_provider: ^2.0.9
+  firebase_storage: ^11.0.3
+  flutter_chat_bubble: ^2.0.0
 
 dev_dependencies:
   flutter_test:

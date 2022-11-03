@@ -1,8 +1,9 @@
-// ignore_for_file: avoid_print, file_names
+// ignore_for_file: avoid_print, file_names, use_build_context_synchronously
 
 import 'package:chat/screens/LoginScreen.dart';
+
 import 'package:firebase_auth/firebase_auth.dart';
-// import 'package:firebase_core/firebase_core.dart';
+
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
@@ -23,7 +24,7 @@ class _MyVerifyState extends State<MyVerify> {
       // Call the user's CollectionReference to add a new user
       return users
           .add({
-            'number': auth.currentUser!.phoneNumber, // John Doe
+            'number': auth.currentUser?.phoneNumber, // John Doe
             'uid': auth.currentUser?.uid, // Stokes and Sons
             // 42
           })
@@ -54,11 +55,6 @@ class _MyVerifyState extends State<MyVerify> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.asset(
-                'assets/img1.png',
-                width: 150,
-                height: 150,
-              ),
               const SizedBox(
                 height: 25,
               ),
@@ -83,6 +79,7 @@ class _MyVerifyState extends State<MyVerify> {
                 onChanged: (value) {
                   code = value;
                 },
+                keyboardType: TextInputType.number,
                 // defaultPinTheme: defaultPinTheme,
                 // focusedPinTheme: focusedPinTheme,
                 // submittedPinTheme: submittedPinTheme,
@@ -108,6 +105,7 @@ class _MyVerifyState extends State<MyVerify> {
                       // Sign the user in (or link) with the credential
                       await auth.signInWithCredential(credential);
                       addUser();
+                      print(auth.currentUser?.phoneNumber);
                     },
                     child: const Text("Verify Phone Number")),
               ),

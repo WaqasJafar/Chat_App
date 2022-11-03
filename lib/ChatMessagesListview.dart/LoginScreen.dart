@@ -34,11 +34,6 @@ class _MyPhoneState extends State<MyPhone> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.asset(
-                'assets/img1.png',
-                width: 150,
-                height: 150,
-              ),
               const SizedBox(
                 height: 25,
               ),
@@ -126,7 +121,12 @@ class _MyPhoneState extends State<MyPhone> {
                       );
                     },
                     child: const Text("Send the code")),
-              )
+              ),
+              FloatingActionButton(
+                backgroundColor: Colors.green,
+                child: const Icon(Icons.add),
+                onPressed: () {},
+              ),
             ],
           ),
         ),
