@@ -1,7 +1,7 @@
 # chat
 
  Flutter chat -app.
-its a flutter-chattting-app with firebase authentication on realtime chnages
+its a flutter-chattting-app with firebase authentication on realtime changes
 
 
 
