@@ -12,6 +12,7 @@ import 'package:intl/intl.dart';
 
 import '../models/user_model.dart';
 import 'chat_screen.dart';
+import 'hs.dart';
 
 class HomeScreen extends StatefulWidget {
   UserModel user;
@@ -149,10 +150,10 @@ class _HomeScreenState extends State<HomeScreen> {
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.search),
         onPressed: () {
-          Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => SearchScreen(widget.user)));
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => MainScreen(widget.user)));
+          // MaterialPageRoute(
+          //     builder: (context) => SearchScreen(widget.user)));
         },
       ),
     );
