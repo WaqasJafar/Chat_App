@@ -15,6 +15,7 @@ class MessageTextField extends StatefulWidget {
 
 class _MessageTextFieldState extends State<MessageTextField> {
   final TextEditingController _controller = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -26,13 +27,19 @@ class _MessageTextFieldState extends State<MessageTextField> {
               child: TextField(
             controller: _controller,
             decoration: InputDecoration(
-                labelText: "Type your Message",
-                fillColor: Colors.grey[100],
-                filled: true,
-                border: OutlineInputBorder(
-                    borderSide: const BorderSide(width: 0),
-                    gapPadding: 10,
-                    borderRadius: BorderRadius.circular(25))),
+              labelText: "Type your Message",
+              fillColor: Colors.grey[100],
+              filled: true,
+              border: OutlineInputBorder(
+                borderSide: const BorderSide(
+                  width: 0,
+                ),
+                gapPadding: 10,
+                borderRadius: BorderRadius.circular(
+                  25,
+                ),
+              ),
+            ),
           )),
           const SizedBox(
             width: 20,

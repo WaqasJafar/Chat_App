@@ -10,6 +10,7 @@ class SingleMessage extends StatelessWidget {
       required this.message,
       required this.isMe,
       required this.time});
+
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -20,8 +21,13 @@ class SingleMessage extends StatelessWidget {
           margin: const EdgeInsets.all(16),
           constraints: const BoxConstraints(maxWidth: 200),
           decoration: BoxDecoration(
-              color: isMe ? Colors.black : Colors.orange,
-              borderRadius: const BorderRadius.all(Radius.circular(12))),
+            color: isMe ? Colors.black : Colors.orange,
+            borderRadius: const BorderRadius.all(
+              Radius.circular(
+                12,
+              ),
+            ),
+          ),
           // child: Text(
           //   message,
           //   style: const TextStyle(

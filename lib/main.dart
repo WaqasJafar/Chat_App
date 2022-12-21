@@ -1,6 +1,5 @@
 import 'package:chat/screens/auth_screen.dart';
 import 'package:chat/screens/home_screen.dart';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -36,22 +35,24 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
-        home: FutureBuilder(
-            future: userSignedIn(),
-            builder: (context, AsyncSnapshot<Widget> snapshot) {
-              if (snapshot.hasData) {
-                return snapshot.data!;
-              }
-              return const Scaffold(
-                body: Center(
-                  child: CircularProgressIndicator(),
-                ),
-              );
-            }));
+      debugShowCheckedModeBanner: false,
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: FutureBuilder(
+        future: userSignedIn(),
+        builder: (context, AsyncSnapshot<Widget> snapshot) {
+          if (snapshot.hasData) {
+            return snapshot.data!;
+          }
+          return const Scaffold(
+            body: Center(
+              child: CircularProgressIndicator(),
+            ),
+          );
+        },
+      ),
+    );
   }
 }

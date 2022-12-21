@@ -16,7 +16,9 @@ import 'hs.dart';
 
 class HomeScreen extends StatefulWidget {
   UserModel user;
+
   HomeScreen(this.user, {super.key});
+
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
@@ -75,7 +77,9 @@ class _HomeScreenState extends State<HomeScreen> {
                           var friend = asyncSnapshot.data;
                           return ListTile(
                             leading: ClipRRect(
-                              borderRadius: BorderRadius.circular(60),
+                              borderRadius: BorderRadius.circular(
+                                60,
+                              ),
                               child: Container(
                                 margin: const EdgeInsets.only(),
                                 width: 58.0,
@@ -102,20 +106,26 @@ class _HomeScreenState extends State<HomeScreen> {
                             subtitle: Container(
                               child: Row(
                                 children: <Widget>[
-                                  Text(
-                                    "$lastMsg",
-                                    style: const TextStyle(color: Colors.grey),
-                                    overflow: TextOverflow.ellipsis,
-                                  ),
-                                  Container(
-                                    margin: const EdgeInsets.only(
-                                      left: 200.0,
-                                    ),
+                                  Expanded(
                                     child: Text(
-                                      time,
+                                      "$lastMsg",
                                       style: const TextStyle(
-                                          color: Colors.grey, fontSize: 10),
+                                        color: Colors.grey,
+                                      ),
                                       overflow: TextOverflow.ellipsis,
+                                    ),
+                                  ),
+                                  Expanded(
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(left: 60),
+                                      child: Text(
+                                        time,
+                                        style: const TextStyle(
+                                          color: Colors.grey,
+                                          fontSize: 10,
+                                        ),
+                                        overflow: TextOverflow.ellipsis,
+                                      ),
                                     ),
                                   ),
                                 ],
@@ -128,13 +138,16 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                             onTap: () {
                               Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => ChatScreen(
-                                          currentUser: widget.user,
-                                          friendId: friend['uid'],
-                                          friendName: friend['name'],
-                                          friendImage: friend['image'])));
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => ChatScreen(
+                                    currentUser: widget.user,
+                                    friendId: friend['uid'],
+                                    friendName: friend['name'],
+                                    friendImage: friend['image'],
+                                  ),
+                                ),
+                              );
                             },
                           );
                         }
@@ -150,8 +163,14 @@ class _HomeScreenState extends State<HomeScreen> {
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.search),
         onPressed: () {
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => MainScreen(widget.user)));
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => MainScreen(
+                widget.user,
+              ),
+            ),
+          );
           // MaterialPageRoute(
           //     builder: (context) => SearchScreen(widget.user)));
         },

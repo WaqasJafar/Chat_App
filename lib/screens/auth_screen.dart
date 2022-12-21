@@ -67,8 +67,8 @@ class _AuthScreenState extends State<AuthScreen> {
               ),
             ),
             const Text(
-              "Flutter Chat App",
-              style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
+              "Welcome To Chat App",
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
@@ -94,9 +94,13 @@ class _AuthScreenState extends State<AuthScreen> {
                   ],
                 ),
                 style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Colors.black),
-                    padding: MaterialStateProperty.all(
-                        const EdgeInsets.symmetric(vertical: 12))),
+                  backgroundColor: MaterialStateProperty.all(Colors.black),
+                  padding: MaterialStateProperty.all(
+                    const EdgeInsets.symmetric(
+                      vertical: 12,
+                    ),
+                  ),
+                ),
               ),
             ),
           ],
